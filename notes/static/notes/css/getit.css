@@ -1,0 +1,283 @@
+
+
+html,
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+/* Você pode usar o CSS comentado abaixo, se ajudar */
+/* Fonte: https://codepen.io/CrisWoler/pen/ogXBLj */
+.btn {
+  font-weight: bold;
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+
+  overflow: hidden;
+
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+
+  background-color: #f7d736;
+
+  transition: background-color 0.3s;
+}
+
+.btn > * {
+  position: relative;
+}
+
+.btn:before {
+  content: "";
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  display: block;
+  width: 0;
+  padding-top: 0;
+
+  border-radius: 100%;
+
+  background-color: rgba(236, 240, 241, 0.3);
+
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.btn:active:before {
+  width: 120%;
+  padding-top: 120%;
+
+  transition: width 0.2s ease-out, padding-top 0.2s ease-out;
+}
+
+.card-container {
+  margin-left: 3%;
+  margin-right: 3%;
+  margin-top: 1%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-grow: 1;
+}
+
+.card {
+  margin-top: 1%;
+  background-color: rgb(151, 151, 172);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  border-radius: 2px;
+  width: 14%;
+  font-family: 'Permanent Marker', cursive;
+  padding: 0.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.card-title {
+  font-weight: bold;
+
+}
+.card-content {
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+.appbar {
+  font-family: "Roboto", sans-serif;
+  overflow: hidden;
+  background-color: #f7d736;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 2px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  height: 60px;
+}
+
+.logo {
+  height: 45px;
+  padding-top: 2px;
+  float: left;
+}
+
+.subtitle {
+  font-weight: bold;
+  float: left;
+  margin-top: 1%;
+  margin-left: 1%;
+  padding-bottom: 0.6rem;
+}
+
+.form-card {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  width: 32%;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 4px 10px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  margin-top: 1%;
+}
+
+.autoresize {
+  resize: none;
+  overflow: auto;
+	overflow-x: hidden;
+}
+
+.autoresize::-webkit-scrollbar-track{
+	background-color: #e2e2e2;
+}
+
+.autoresize::-webkit-scrollbar{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+.autoresize::-webkit-scrollbar-thumb{
+	border-radius: 100px;
+	background-color: #545454;
+}
+
+.form-card-title {
+  font-weight: bold;
+  font-size: 1rem;
+  padding-bottom: 0.6rem;
+}
+
+.form-card-title, .autoresize, .form-card-tag {
+  /* font-family: "Roboto", sans-serif; */
+  border: none;
+  margin-bottom: 3px;
+}
+
+.form-card-tag {
+  width: 40%;
+  margin-top: 0.1rem;
+
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1%;
+}
+
+.card-color-1 {
+  background-color: #ead3a7;
+
+}
+.card-color-2 {
+  background-color: #9de0f5;
+}
+.card-color-3 {
+  background-color: #ef89ba;
+}
+.card-color-4 {
+  background-color: #fae890;
+}
+.card-color-5 {
+  background-color: #abe9c1;
+}
+
+.card-rotation-1 {
+  transform:rotate(0deg);
+}
+.card-rotation-2 {
+  transform:rotate(1deg);
+}
+.card-rotation-3 {
+  transform:rotate(2deg);
+}
+.card-rotation-4 {
+  transform:rotate(3deg);
+}
+.card-rotation-5 {
+  transform:rotate(4deg);
+}
+.card-rotation-6 {
+  transform:rotate(5deg);
+}
+.card-rotation-7 {
+  transform:rotate(-1deg);
+}
+.card-rotation-8 {
+  transform:rotate(-2deg);
+}
+.card-rotation-9 {
+  transform:rotate(-3deg);
+}
+.card-rotation-10 {
+  transform:rotate(-4deg);
+}
+.card-rotation-11 {
+  transform:rotate(-5deg);
+}
+
+.invs {
+  visibility: hidden;
+  border-radius: 25px;
+}
+
+.card:hover .invs{
+  visibility: visible;
+}
+
+.tituloIN, .detalhesIN {
+  font-family: 'Permanent Marker', cursive;
+  background: none;
+  width: 80%;
+}
+
+.del {
+  float: right;
+  background: none;
+  border: none;
+  align-self: end;
+}
+
+.update {
+  float: right;
+  background: none;
+  border: none;
+}
+.update-tag {
+  float: left;
+  background: none;
+  border: none;
+}
+
+.tag-bar {
+  display: none;
+  position: absolute;
+  left: -100px;
+  width: 40%;
+  background: none;
+}
+
+.detalhes {
+  line-height: 1.5;
+  width: 80%;
+  box-sizing: border-box;
+}
+
+.botoes {
+  display: flex;
+  flex-direction: row;
+
+}

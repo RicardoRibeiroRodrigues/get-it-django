@@ -1,0 +1,20 @@
+{% block card %}
+<div class="card" id="{{note.id}}">
+    <button id="{{note.id}}" class="invs del">
+        delete
+        <!-- <img src="https://img.icons8.com/material-outlined/24/000000/filled-trash.png" /> -->
+    </button>
+
+
+    <form class='formIcon' action='/put?id={id}' method="POST">
+        <textarea class="autoresize form-card-title tituloIN" name="titulo">{{note.title}}</textarea>
+        <textarea class="autoresize detalhesIN" name="detalhes"
+            placeholder="Digite o conteúdo...">{{note.details}}</textarea>
+        <button class="invs update" type="submit" id="{id}">
+            <!-- <img src="https://img.icons8.com/ios-glyphs/30/000000/approve-and-update--v1.png" />
+             -->
+            update
+        </button>
+    </form>
+</div>
+{% endblock %}
