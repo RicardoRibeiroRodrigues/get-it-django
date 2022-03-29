@@ -9,9 +9,9 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
 from pathlib import Path
-import dj_database_url
+
+# import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-dk(k0d2qdiw^=-z961*ewm5)&!am948f1=lha+49g3-v%bzh^@"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["aqueous-hamlet-29504.herokuapp.com", "localhost", "127.0.0.1"]
 
@@ -75,12 +75,18 @@ WSGI_APPLICATION = "getit.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+# DATABASES = {
+#     "default": dj_database_url.config(
+#         default="postgresql://localhost/getit?user=getituser&password=getitsenha",
+#         conn_max_age=600,
+#         ssl_require=not DEBUG,
+#     )
+# }
 DATABASES = {
-    "default": dj_database_url.config(
-        default="postgresql://localhost/getit?user=getituser&password=getitsenha",
-        conn_max_age=600,
-        ssl_require=not DEBUG,
-    )
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
 }
 
 
