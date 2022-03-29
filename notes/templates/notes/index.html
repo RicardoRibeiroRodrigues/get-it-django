@@ -35,23 +35,16 @@
                     <img src="https://img.icons8.com/ios-glyphs/30/000000/approve-and-update--v1.png" />
                 </button>
                 <input class="submit-tag" type='hidden' name="tag" id="{{note.id}}">
-                <div class="tags" id="{{note.id}}">
-                    <p class="tag-p" contentEditable="true" id="{{note.id}}">
-                        {% if note.tag == null %}
-                        {{"Insira uma tag!"}}
-                        {% else %}
-                        {{note.tag.title}}
-                        {% endif %}
-                    </p>
-                </div>
+                <!-- <div class="tags" id="{{note.id}}"> -->
+                <p class="tag-p" contentEditable="true" id="{{note.id}}">
+                    {% if note.tag == null %}
+                    {{"Insira uma tag!"}}
+                    {% else %}
+                    {{note.tag.title}}
+                    {% endif %}
+                </p>
+                <!-- </div> -->
             </form>
-            <!-- <div class="botoes"> -->
-            <!-- <button class="invs update-tag" id="{{note.id}}">
-                    <img
-                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAABSklEQVRIie2Wz07CQBCHP+UZPCiVYPQpAB/Af9AXEZ/FI0EvHLlh8FmMF2KiL0A9CsHDdmXZsNvZrTUe+CVzaDvdb2Y6O13Y6Y+0F+DbAHrAFdAEkvz+B/AGTIEJ8P5bwdWBAbAAVgW2BMZ5YKWUAp8CoG0Z0I2F3qEyCIWa2fdDoWlJqAkXZ54QV15f2Y8k4Efhgi2gI/QdFkEbyLp3Zbwj8V2w3n4A7FvgFKgVRRehGmoGOMEXFUC1Ln3gswrBp76HGe5GksrVcJnpZGfsUshMD/H90Svy/akl9X8xQXbGs5hohdpY2wY/Vwie+h4eU80A+cIaINv0IFysDZwLfQdFUFA/fte2irE5cCgBg5pg0pL7bAncSKFafcofBG5DoVpd4so+B65joVoHwD2qMyVZjhB805DxlrA+3p6webydoWbAU3690//RN0/sInIeI4efAAAAAElFTkSuQmCC" />
-                </button>
-                <input class='tag-bar' id="{{note.id}}" name="tag"> -->
-            <!-- </div> -->
         </div>
 
         {% endfor %}

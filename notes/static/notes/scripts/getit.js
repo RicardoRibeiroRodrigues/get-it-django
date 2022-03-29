@@ -39,25 +39,11 @@ document.addEventListener("DOMContentLoaded", function () {
     )} card-rotation-${getRandomInt(1, 11)}`;
   }
 
-  // script para adicionar as tags.
-  let botoes_tag = document.getElementsByClassName("update-tag");
-  for (let botao_tag of botoes_tag) {
-    botao_tag.addEventListener("click", async function (e) {
-      console.log(`Entrou no update-tag, id=${this.id}`);
-      // Cria um elemento para adicionar a tag
-      barra_tag = document.getElementById(`${this.id}`).getElementsByClassName("tag-bar")[0];
-      barra_tag.style.display = 'block';
-      await new Promise(r => setTimeout(r, 100));
-      barra_tag.style.transform = 'translate(150px)';
-      barra_tag.style.transitionDuration = '0.2s';
-    });
-  }
-
   let botoes_update = document.getElementsByClassName("update");
   for (let botao_update of botoes_update) {
     botao_update.addEventListener("click", function (e) {
       p = document.getElementById(`${this.id}`).getElementsByClassName("tag-p")[0];
-      console.log(`Inner html: ${p.innerHTML}`)
+      console.log(`Inner html: ${p.innerHTML}`);
       document.getElementById(`${this.id}`).getElementsByClassName("submit-tag")[0].value = p.innerHTML;
 
     });

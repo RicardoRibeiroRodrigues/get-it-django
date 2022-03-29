@@ -72,7 +72,6 @@ body {
 
 .card {
   margin-top: 1%;
-  background-color: rgb(151, 151, 172);
   box-shadow: 0 3px 8px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   border-radius: 2px;
   width: 14%;
@@ -94,6 +93,7 @@ body {
   align-items: center;
   flex-grow: 1;
 }
+
 .appbar {
   font-family: "Roboto", sans-serif;
   overflow: hidden;
@@ -140,16 +140,16 @@ body {
 	overflow-x: hidden;
 }
 
-.autoresize::-webkit-scrollbar-track{
+.autoresize::-webkit-scrollbar-track, .tag-p::-webkit-scrollbar-track, .tag-a::-webkit-scrollbar-track{
 	background-color: #e2e2e2;
 }
 
-.autoresize::-webkit-scrollbar{
+.autoresize::-webkit-scrollbar, .tag-p::-webkit-scrollbar, .tag-a::-webkit-scrollbar{
 	width: 6px;
 	background-color: #F5F5F5;
 }
 
-.autoresize::-webkit-scrollbar-thumb{
+.autoresize::-webkit-scrollbar-thumb, .tag-p::-webkit-scrollbar-thumb, .tag-a::-webkit-scrollbar-thumb{
 	border-radius: 100px;
 	background-color: #545454;
 }
@@ -161,14 +161,13 @@ body {
 }
 
 .form-card-title, .autoresize, .form-card-tag {
-  /* font-family: "Roboto", sans-serif; */
   border: none;
   margin-bottom: 3px;
 }
 
 .form-card-tag {
   width: 40%;
-  margin-top: 0.1rem;
+  margin-top: 0.4rem;
 
 }
 
@@ -277,55 +276,25 @@ body {
   box-sizing: border-box;
 }
 
-
-.tags p, .tags a{
-	margin-left: 20px;
-	padding: 0 10px 0 12px;
-	background: #0089e0;
-	color: #fff;
-	text-decoration: none;
-	-moz-border-radius-bottomright: 4px;
-	-webkit-border-bottom-right-radius: 4px;	
-	border-bottom-right-radius: 4px;
-	-moz-border-radius-topright: 4px;
-	-webkit-border-top-right-radius: 4px;	
-	border-top-right-radius: 4px;	
+.tag-p, .tag-a {
+  text-decoration: none;
+  color: black;
+  width: 70%;
+  height: 2rem;
+  overflow: auto;
+	overflow-x: hidden;
+  background-color: rgba(128, 128, 128, 0.5);
   float: left;
-  height: 26px;
-  line-height: 24px;
-  position: relative;
   font-size: 0.8rem;
-	}	
+  border-radius: 4px;
+  padding: 0.5rem 0.2rem 0rem 0.2rem;
+  margin-top: 0.7rem;
+  text-align: center
+}
 
-.tags p:before, .tags a:before{
-	content: "";
-	float: left;
-	position: absolute;
-	top: 0;
-	left: -12px;
-	width: 0;
-	height: 0;
-	border-color: transparent #0089e0 transparent transparent;
-	border-style: solid;
-	border-width: 12px 12px 14px 0;		
-	}	
-
-.tags p:after, .tags a:after{
-	content: "";
-	position: absolute;
-	top: 10px;
-	left: 0;
-	float: left;
-	width: 4px;
-	height: 4px;
-	-moz-border-radius: 2px;
-	-webkit-border-radius: 2px;
-	border-radius: 2px;
-	background: #fff;
-	-moz-box-shadow: -1px -1px 2px #004977;
-	-webkit-box-shadow: -1px -1px 2px #004977;
-	box-shadow: -1px -1px 2px #004977;
-	}	
+.tag-a{
+  width: 10%;
+}
 
 .tag-appbar{
   margin-left: 60%;
@@ -339,7 +308,7 @@ body {
 }
 
 .tag-title{
-  background-color: green;
+  background-color: rgba(0, 128, 0, 0.70);
   border-radius: 25px;
   padding: 0.8%;
   margin-bottom: 5%;

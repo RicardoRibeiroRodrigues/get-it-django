@@ -21,7 +21,6 @@ def index(request):
 
 
 def update(request):
-    print(request.path)
     id = request.POST.get("id")
     title = request.POST.get("titulo")
     content = request.POST.get("detalhes")

@@ -9,11 +9,9 @@
     <h2 class="tag-title">Lista de todas as tags: </h2>
     <div class="tag-box">
         {% for tag in tags %}
-        <div class="tags">
-            <a href="tag/{{tag.id}}" class="tag-a" id="{{tag.id}}">
-                {{tag.title}}
-            </a>
-        </div>
+        <a href="tag/{{tag.id}}" class="tag-a" id="{{tag.id}}">
+            {{tag.title}}
+        </a>
         {% endfor %}
     </div>
 </div>
