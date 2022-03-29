@@ -53,6 +53,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  let botoes_update = document.getElementsByClassName("update");
+  for (let botao_update of botoes_update) {
+    botao_update.addEventListener("click", function (e) {
+      p = document.getElementById(`${this.id}`).getElementsByClassName("tag-p")[0];
+      console.log(`Inner html: ${p.innerHTML}`)
+      document.getElementById(`${this.id}`).getElementsByClassName("submit-tag")[0].value = p.innerHTML;
+
+    });
+  }
+
+
   // Faz a requisicao do delete com o JS
   function delete_item() {
     let botao = document.getElementsByClassName("del");

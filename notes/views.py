@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
-from .models import Note
+from .models import Note, Tag
 from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
@@ -8,8 +8,11 @@ def index(request):
     if request.method == "POST":
         title = request.POST.get("titulo")
         content = request.POST.get("detalhes")
+        tag = request.POST.get("tag")
         # Criando um note com os argumentos
-        note = Note(title=title, content=content)
+        tag = Tag(title=tag)
+        tag.save()
+        note = Note(title=title, content=content, tag=tag)
         note.save()
         return redirect("index")
     else:
@@ -18,13 +21,26 @@ def index(request):
 
 
 def update(request):
+    print(request.path)
     id = request.POST.get("id")
     title = request.POST.get("titulo")
     content = request.POST.get("detalhes")
+    tag = request.POST.get("tag")
+    tag = tag.strip()
     note = Note.objects.get(id=id)
     note.title = title
     note.content = content
+    # Se certifica que nao e o placeholder
+    if tag != "Insira uma tag!":
+        if not Tag.objects.filter(title=tag).exists():
+            tag = Tag(title=tag)
+            tag.save()
+        else:
+            tag = Tag.objects.get(title=tag)
+        note.tag = tag
     note.save()
+    if "tag" in request.path:
+        return redirect(f"/tag/{tag.id}")
     return redirect("index")
 
 
@@ -36,3 +52,21 @@ def delete(request, id):
     response = HttpResponse(content="", status=303)
     response["Location"] = "../"
     return response
+
+
+def tags(request):
+    # Pega todas as tags.
+    all_tags = Note.objects.values("tag").distinct()
+    tag_list = []
+    for valor in all_tags:
+        if valor["tag"] is not None:
+            tag_list.append(Tag.objects.get(id=valor["tag"]))
+    return render(request, "notes/alltags.html", {"tags": tag_list})
+
+
+def tag(request, id):
+    given_tag = Tag.objects.get(id=id)
+    notes_with_tag = Note.objects.all().filter(tag=given_tag)
+    return render(
+        request, "notes/onetag.html", {"notes": notes_with_tag, "tag": given_tag}
+    )
