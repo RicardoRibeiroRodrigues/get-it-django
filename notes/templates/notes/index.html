@@ -35,7 +35,6 @@
                     <img src="https://img.icons8.com/ios-glyphs/30/000000/approve-and-update--v1.png" />
                 </button>
                 <input class="submit-tag" type='hidden' name="tag" id="{{note.id}}">
-                <!-- <div class="tags" id="{{note.id}}"> -->
                 <p class="tag-p" contentEditable="true" id="{{note.id}}">
                     {% if note.tag == null %}
                     {{"Insira uma tag!"}}
@@ -43,7 +42,6 @@
                     {{note.tag.title}}
                     {% endif %}
                 </p>
-                <!-- </div> -->
             </form>
         </div>
 

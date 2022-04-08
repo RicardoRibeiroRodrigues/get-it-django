@@ -1,0 +1,14 @@
+{% extends "notes/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="appbar">
+    <a href="/"><img src="{% static 'notes/img/logo-getit.png' %}" class="logo"></a>
+    <span class="subtitle">Como o Post-it, mas com outro verbo</span>
+</div>
+<div class="container">
+    <h1 class="title">Oops!</h1>
+    <h2>A página que você está procurando foi movida, renomeada ou nunca existiu.</h2>
+    <a href="/" class="error-button">Voltar para o inicio</a>
+</div>
+{% endblock %}

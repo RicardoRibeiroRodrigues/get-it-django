@@ -1,5 +1,3 @@
-
-
 html,
 body {
   font-family: "Roboto", sans-serif;
@@ -25,7 +23,7 @@ body {
   transition: background-color 0.3s;
 }
 
-.btn > * {
+.btn>* {
   position: relative;
 }
 
@@ -58,7 +56,8 @@ body {
   transition: width 0.2s ease-out, padding-top 0.2s ease-out;
 }
 
-.card-container, .tag-box {
+.card-container,
+.tag-box {
   width: 100%;
   margin-left: 5%;
   margin-right: 5%;
@@ -72,7 +71,7 @@ body {
 
 .card {
   margin-top: 1%;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   border-radius: 2px;
   width: 14%;
   font-family: 'Permanent Marker', cursive;
@@ -86,6 +85,7 @@ body {
   font-weight: bold;
 
 }
+
 .card-content {
   margin-top: 10%;
   display: flex;
@@ -105,7 +105,7 @@ body {
   flex-direction: row;
   align-items: center;
   border-radius: 2px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   height: 60px;
 }
 
@@ -130,37 +130,46 @@ body {
   width: 32%;
   padding: 10px;
   border-radius: 4px;
-  box-shadow: 4px 10px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 4px 10px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   margin-top: 1%;
 }
 
 .autoresize {
   resize: none;
   overflow: auto;
-	overflow-x: hidden;
+  overflow-x: hidden;
 }
 
-.autoresize::-webkit-scrollbar-track, .tag-p::-webkit-scrollbar-track, .tag-a::-webkit-scrollbar-track{
-	background-color: #e2e2e2;
+.autoresize::-webkit-scrollbar-track,
+.tag-p::-webkit-scrollbar-track,
+.tag-a::-webkit-scrollbar-track {
+  background-color: #e2e2e2;
 }
 
-.autoresize::-webkit-scrollbar, .tag-p::-webkit-scrollbar, .tag-a::-webkit-scrollbar{
-	width: 6px;
-	background-color: #F5F5F5;
+.autoresize::-webkit-scrollbar,
+.tag-p::-webkit-scrollbar,
+.tag-a::-webkit-scrollbar {
+  width: 6px;
+  background-color: #F5F5F5;
 }
 
-.autoresize::-webkit-scrollbar-thumb, .tag-p::-webkit-scrollbar-thumb, .tag-a::-webkit-scrollbar-thumb{
-	border-radius: 100px;
-	background-color: #545454;
+.autoresize::-webkit-scrollbar-thumb,
+.tag-p::-webkit-scrollbar-thumb,
+.tag-a::-webkit-scrollbar-thumb {
+  border-radius: 100px;
+  background-color: #545454;
 }
 
-.form-card-title, .tag-title {
+.form-card-title,
+.tag-title {
   font-weight: bold;
   font-size: 1rem;
   padding-bottom: 0.6rem;
 }
 
-.form-card-title, .autoresize, .form-card-tag {
+.form-card-title,
+.autoresize,
+.form-card-tag {
   border: none;
   margin-bottom: 3px;
 }
@@ -182,51 +191,65 @@ body {
   background-color: #ead3a7;
 
 }
+
 .card-color-2 {
   background-color: #9de0f5;
 }
+
 .card-color-3 {
   background-color: #ef89ba;
 }
+
 .card-color-4 {
   background-color: #fae890;
 }
+
 .card-color-5 {
   background-color: #abe9c1;
 }
 
 .card-rotation-1 {
-  transform:rotate(0deg);
+  transform: rotate(0deg);
 }
+
 .card-rotation-2 {
-  transform:rotate(1deg);
+  transform: rotate(1deg);
 }
+
 .card-rotation-3 {
-  transform:rotate(2deg);
+  transform: rotate(2deg);
 }
+
 .card-rotation-4 {
-  transform:rotate(3deg);
+  transform: rotate(3deg);
 }
+
 .card-rotation-5 {
-  transform:rotate(4deg);
+  transform: rotate(4deg);
 }
+
 .card-rotation-6 {
-  transform:rotate(5deg);
+  transform: rotate(5deg);
 }
+
 .card-rotation-7 {
-  transform:rotate(-1deg);
+  transform: rotate(-1deg);
 }
+
 .card-rotation-8 {
-  transform:rotate(-2deg);
+  transform: rotate(-2deg);
 }
+
 .card-rotation-9 {
-  transform:rotate(-3deg);
+  transform: rotate(-3deg);
 }
+
 .card-rotation-10 {
-  transform:rotate(-4deg);
+  transform: rotate(-4deg);
 }
+
 .card-rotation-11 {
-  transform:rotate(-5deg);
+  transform: rotate(-5deg);
 }
 
 .invs {
@@ -234,11 +257,12 @@ body {
   border-radius: 25px;
 }
 
-.card:hover .invs{
+.card:hover .invs {
   visibility: visible;
 }
 
-.tituloIN, .detalhesIN {
+.tituloIN,
+.detalhesIN {
   font-family: 'Permanent Marker', cursive;
   background: none;
   width: 80%;
@@ -256,6 +280,7 @@ body {
   background: none;
   border: none;
 }
+
 .update-tag {
   float: left;
   background: none;
@@ -276,48 +301,65 @@ body {
   box-sizing: border-box;
 }
 
-.tag-p, .tag-a {
+.tag-p,
+.tag-a {
   text-decoration: none;
   color: black;
   width: 70%;
   height: 2rem;
   overflow: auto;
-	overflow-x: hidden;
+  overflow-x: hidden;
   background-color: rgba(128, 128, 128, 0.5);
   float: left;
   font-size: 0.8rem;
   border-radius: 4px;
   padding: 0.5rem 0.2rem 0rem 0.2rem;
   margin-top: 0.7rem;
-  text-align: center
+  text-align: center;
 }
 
-.tag-a{
-  width: 10%;
-}
-
-.tag-appbar{
-  margin-left: 60%;
-  border: solid black 1px;
-  border-radius: 25px;
-  padding: 0.5%;
-  background-color: white;
+.tag-appbar {
+  box-shadow: 3px 4px 0px 0px #899599;
+  background: linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+  background-color: #ededed;
+  border-radius: 15px;
+  border: 1px solid #d6bcd6;
+  display: inline-block;
+  cursor: pointer;
+  color: #3a8a9e;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 7px 25px;
   text-decoration: none;
-  color: black;
+  text-shadow: 0px 1px 0px #e1e2ed;
+  margin-left: 60%;
   font-weight: bold;
 }
 
-.tag-title{
-  background-color: rgba(0, 128, 0, 0.70);
+.tag-appbar:hover {
+  background: linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+  background-color: #bab1ba;
+}
+
+.tag-appbar:active {
+  position: relative;
+  top: 1px;
+}
+
+
+.tag-a {
+  width: 10%;
+}
+
+.tag-title {
+  background-color: rgba(0, 128, 0, 0.5);
   border-radius: 25px;
   padding: 0.8%;
   margin-bottom: 5%;
 
 }
 
-.tag-box{
-  width: 100%; 
+.tag-box {
+  width: 100%;
   padding: 1%;
-  border: solid black 2px;
-  border-radius: 25px;
 }

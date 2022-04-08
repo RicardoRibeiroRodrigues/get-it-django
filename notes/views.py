@@ -1,4 +1,5 @@
 from django.shortcuts import redirect, render
+from django.template import RequestContext
 from django.http import HttpResponse
 from .models import Note, Tag
 from django.views.decorators.csrf import csrf_exempt
@@ -24,12 +25,11 @@ def update(request):
     id = request.POST.get("id")
     title = request.POST.get("titulo")
     content = request.POST.get("detalhes")
-    tag = request.POST.get("tag")
-    tag = tag.strip()
+    tag = request.POST.get("tag").strip()
     note = Note.objects.get(id=id)
     note.title = title
     note.content = content
-    # Se certifica que nao e o placeholder
+    # Se certifica que não é o placeholder
     if tag != "Insira uma tag!":
         if not Tag.objects.filter(title=tag).exists():
             tag = Tag(title=tag)
@@ -38,6 +38,7 @@ def update(request):
             tag = Tag.objects.get(title=tag)
         note.tag = tag
     note.save()
+    # Para updates chamados na tela de tags.
     if "tag" in request.path:
         return redirect(f"/tag/{tag.id}")
     return redirect("index")
@@ -54,7 +55,7 @@ def delete(request, id):
 
 
 def tags(request):
-    # Pega todas as tags.
+    # Pega todas as tags únicas.
     all_tags = Note.objects.values("tag").distinct()
     tag_list = []
     for valor in all_tags:
