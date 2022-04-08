@@ -9,16 +9,21 @@ def index(request):
     if request.method == "POST":
         title = request.POST.get("titulo")
         content = request.POST.get("detalhes")
+        # Cria a anotacao
+        note = Note(title=title, content=content)
+        note.save()
+        # Adiciona as tags
         tag = request.POST.get("tag")
+        tags = tag.split(",")
         # Criando um note com os argumentos
         # Primeiro ve se essa tag ja existe -> evitar tags diferentes com o mesmo conteudo.
-        if not Tag.objects.filter(title=tag).exists():
-            tag = Tag(title=tag)
-            tag.save()
-        else:
-            tag = Tag.objects.get(title=tag)
-        note = Note(title=title, content=content, tag=tag)
-        note.save()
+        for tag in tags:
+            if not Tag.objects.filter(title=tag).exists():
+                tag = Tag(title=tag)
+                tag.save()
+            else:
+                tag = Tag.objects.get(title=tag)
+            note.tag.add(tag)
         return redirect("index")
     else:
         all_notes = Note.objects.order_by("id").all()
@@ -26,21 +31,27 @@ def index(request):
 
 
 def update(request):
+    # TODO: Fazer o update funcionar com o manyToMany das tags.
     id = request.POST.get("id")
     title = request.POST.get("titulo")
     content = request.POST.get("detalhes")
     tag = request.POST.get("tag").strip()
+    tags = tag.split(",")
     note = Note.objects.get(id=id)
     note.title = title
     note.content = content
-    # Se certifica que não é o placeholder
-    if tag != "Insira uma tag!":
-        if not Tag.objects.filter(title=tag).exists():
-            tag = Tag(title=tag)
-            tag.save()
-        else:
-            tag = Tag.objects.get(title=tag)
-        note.tag = tag
+    # Para remover as tag que foram retiradas no update.
+    note.tag.clear()
+    # Se certifica que não é o placeholder ou uma tag vazia.
+    for tag in tags:
+        tag = tag.strip()
+        if tag != "Insira uma tag!" and tag != "":
+            if not Tag.objects.filter(title=tag).exists():
+                tag = Tag(title=tag)
+                tag.save()
+            else:
+                tag = Tag.objects.get(title=tag)
+            note.tag.add(tag)
     note.save()
     # Para updates chamados na tela de tags.
     if "tag" in request.path:

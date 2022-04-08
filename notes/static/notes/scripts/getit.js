@@ -42,9 +42,11 @@ document.addEventListener("DOMContentLoaded", function () {
   let botoes_update = document.getElementsByClassName("update");
   for (let botao_update of botoes_update) {
     botao_update.addEventListener("click", function (e) {
-      p = document.getElementById(`${this.id}`).getElementsByClassName("tag-p")[0];
+      p = document.getElementById(`${this.id}`).getElementsByClassName("tag-p");
       console.log(`Inner html: ${p.innerHTML}`);
-      document.getElementById(`${this.id}`).getElementsByClassName("submit-tag")[0].value = p.innerHTML;
+      for (let elemento of p) {
+        document.getElementById(`${this.id}`).getElementsByClassName("submit-tag")[0].value += "," + elemento.innerHTML;
+      }
 
     });
   }

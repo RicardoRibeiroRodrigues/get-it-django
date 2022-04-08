@@ -13,7 +13,7 @@ class Tag(models.Model):
 class Note(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
-    tag = models.ForeignKey(Tag, null=True, on_delete=models.CASCADE)
+    tag = models.ManyToManyField(Tag)
 
     def __str__(self) -> str:
         return f"{self.id}. {self.title}"
