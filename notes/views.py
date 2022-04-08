@@ -11,8 +11,12 @@ def index(request):
         content = request.POST.get("detalhes")
         tag = request.POST.get("tag")
         # Criando um note com os argumentos
-        tag = Tag(title=tag)
-        tag.save()
+        # Primeiro ve se essa tag ja existe -> evitar tags diferentes com o mesmo conteudo.
+        if not Tag.objects.filter(title=tag).exists():
+            tag = Tag(title=tag)
+            tag.save()
+        else:
+            tag = Tag.objects.get(title=tag)
         note = Note(title=title, content=content, tag=tag)
         note.save()
         return redirect("index")
