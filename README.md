@@ -12,7 +12,7 @@
 ## Features adicionais (Conceito A+)
 - [x] Paginas de erro (404 e 500) personalizadas.
 
-- [x] Possibilidade de uma nota ter múltiplas tags (ManyToMany).
+- [x] Possibilidade de uma nota ter múltiplas tags (ManyToMany), basta criar a anotação colocando vírgula entre as tags.
 
 - [x] Update e delete na página de todas as notas de uma tag.
 
