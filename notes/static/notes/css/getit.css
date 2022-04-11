@@ -261,6 +261,13 @@ body {
   visibility: visible;
 }
 
+.card:hover .card {
+  box-shadow: 10px 10px 7px rgba(0, 0, 0, 0.7);
+  transform: scale(1.25);
+  position: relative;
+  z-index: 5;
+}
+
 .tituloIN,
 .detalhesIN {
   font-family: 'Permanent Marker', cursive;
@@ -313,7 +320,7 @@ body {
   float: left;
   font-size: 0.8rem;
   border-radius: 4px;
-  padding: 0.5rem 0.2rem 0rem 0.2rem;
+  padding: 0.5rem 0.1rem 0rem 0.1rem;
   margin-top: 0.7rem;
   text-align: center;
 }
@@ -326,7 +333,7 @@ body {
   border: 1px solid #d6bcd6;
   display: inline-block;
   cursor: pointer;
-  color: #4a8a9e;
+  color: black;
   font-family: Arial;
   font-size: 17px;
   padding: 7px 25px;
@@ -349,6 +356,7 @@ body {
 
 .tag-a {
   width: 10%;
+  font-weight: bold;
 }
 
 .tag-title {

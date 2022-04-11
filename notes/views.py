@@ -18,6 +18,7 @@ def index(request):
         # Criando um note com os argumentos
         # Primeiro ve se essa tag ja existe -> evitar tags diferentes com o mesmo conteudo.
         for tag in tags:
+            tag = tag.strip().capitalize()
             if not Tag.objects.filter(title=tag).exists():
                 tag = Tag(title=tag)
                 tag.save()
@@ -40,11 +41,11 @@ def update(request):
     note = Note.objects.get(id=id)
     note.title = title
     note.content = content
-    # Para remover as tag que foram retiradas no update.
+    # Para remover as tag que foram possivelmente retiradas no update.
     note.tag.clear()
     # Se certifica que não é o placeholder ou uma tag vazia.
     for tag in tags:
-        tag = tag.strip()
+        tag = tag.strip().capitalize()
         if tag != "Insira uma tag!" and tag != "":
             if not Tag.objects.filter(title=tag).exists():
                 tag = Tag(title=tag)

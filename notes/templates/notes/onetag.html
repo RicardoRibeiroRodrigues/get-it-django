@@ -24,7 +24,7 @@
                 <button class="invs update" type="submit" id="{{note.id}}">
                     <img src="https://img.icons8.com/ios-glyphs/30/000000/approve-and-update--v1.png" />
                 </button>
-                <input type='hidden' name="tag" id="{{note.id}}" value="{{tag.title}}">
+                <input type='hidden' name="tag" id="{{note.id}}" value="{{ note.tag.all|join:',' }}">
             </form>
         </div>
         {% endfor %}
