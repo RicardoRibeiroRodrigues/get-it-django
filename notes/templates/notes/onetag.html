@@ -6,7 +6,7 @@
     <span class="subtitle">Como o Post-it, mas com outro verbo</span>
 </div>
 <div class="container">
-    <h2 class="tag-title">Lista de todas anotações da tag: </h2>
+    <h2 class="tag-title">Lista de todas anotações da tag: {{tag.title}}</h2>
     <div class="card-container">
         {% for note in notes %}
         <div class="card" id="{{note.id}}">

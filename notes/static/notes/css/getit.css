@@ -59,8 +59,8 @@ body {
 .card-container,
 .tag-box {
   width: 100%;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
   margin-top: 1%;
   display: flex;
   flex-wrap: wrap;
@@ -261,9 +261,9 @@ body {
   visibility: visible;
 }
 
-.card:hover .card {
+.card:hover {
   box-shadow: 10px 10px 7px rgba(0, 0, 0, 0.7);
-  transform: scale(1.25);
+  transform: scale(1.15);
   position: relative;
   z-index: 5;
 }
