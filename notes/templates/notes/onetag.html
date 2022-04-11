@@ -6,7 +6,7 @@
     <span class="subtitle">Como o Post-it, mas com outro verbo</span>
 </div>
 <div class="container">
-    <h2 class="tag-title">Lista de todas anotações da tag: </h2>
+    <h2 class="tag-title">Lista de todas anotações da tag: {{tag.title}}</h2>
     <div class="card-container">
         {% for note in notes %}
         <div class="card" id="{{note.id}}">
@@ -24,7 +24,7 @@
                 <button class="invs update" type="submit" id="{{note.id}}">
                     <img src="https://img.icons8.com/ios-glyphs/30/000000/approve-and-update--v1.png" />
                 </button>
-                <input type='hidden' name="tag" id="{{note.id}}" value="{{tag.title}}">
+                <input type='hidden' name="tag" id="{{note.id}}" value="{{ note.tag.all|join:',' }}">
             </form>
         </div>
         {% endfor %}
