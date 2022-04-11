@@ -19,12 +19,13 @@ def index(request):
         # Primeiro ve se essa tag ja existe -> evitar tags diferentes com o mesmo conteudo.
         for tag in tags:
             tag = tag.strip().capitalize()
-            if not Tag.objects.filter(title=tag).exists():
-                tag = Tag(title=tag)
-                tag.save()
-            else:
-                tag = Tag.objects.get(title=tag)
-            note.tag.add(tag)
+            if tag != "":
+                if not Tag.objects.filter(title=tag).exists():
+                    tag = Tag(title=tag)
+                    tag.save()
+                else:
+                    tag = Tag.objects.get(title=tag)
+                note.tag.add(tag)
         return redirect("index")
     else:
         all_notes = Note.objects.order_by("id").all()
