@@ -54,9 +54,6 @@ def update(request):
                 tag = Tag.objects.get(title=tag)
             note.tag.add(tag)
     note.save()
-    # Para updates chamados na tela de tags.
-    if "tag" in request.path:
-        return redirect(f"/tag/{tag.id}")
     return redirect("index")
 
 
