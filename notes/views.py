@@ -33,7 +33,6 @@ def index(request):
 
 
 def update(request):
-    # TODO: Fazer o update funcionar com o manyToMany das tags.
     id = request.POST.get("id")
     title = request.POST.get("titulo")
     content = request.POST.get("detalhes")
