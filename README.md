@@ -34,3 +34,7 @@ DATABASES = {
     }
 }
 ```
+Ainda, em caso de erro com os arquivos estáticos, pode ser criada na raiz do projeto uma pasta **'staticfiles'**, e copiar o conteúdo de **notes/static/notes** para dentro dessa pasta, ou alterar em **getit/settings.py**, a configuração de debug:
+```python 
+DEBUG = True
+```
