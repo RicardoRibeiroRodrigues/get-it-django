@@ -22,12 +22,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-dk(k0d2qdiw^=-z961*ewm5)&!am948f1=lha+49g3-v%bzh^@"
+try:
+    SECRET_KEY = os.environ["SECRET_KEY"]
+except KeyError as e:
+    raise RuntimeError("Could not find a SECRET_KEY in environment") from e
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["aqueous-hamlet-29504.herokuapp.com", "localhost", "127.0.0.1", "local_getit.com"]
+try:
+    ALLOWED_HOSTS = [os.environ["SERVER_IP"]]
+except KeyError as e:
+    raise RuntimeError("Could not find a SERVER_IP in environment") from e
 
 
 # Application definition
@@ -76,19 +82,19 @@ WSGI_APPLICATION = "getit.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-DATABASES = {
-    "default": dj_database_url.config(
-        default="postgresql://localhost/getit?user=getituser&password=getitsenha",
-        conn_max_age=600,
-        ssl_require=not DEBUG,
-    )
-}
 # DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": BASE_DIR / "db.sqlite3",
-#     }
+#     "default": dj_database_url.config(
+#         default="postgresql://localhost/getit?user=getituser&password=getitsenha",
+#         conn_max_age=600,
+#         ssl_require=not DEBUG,
+#     )
 # }
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
+}
 
 
 # Password validation
@@ -127,11 +133,8 @@ USE_TZ = True
 
 
 STATIC_URL = "/static/"
-STATIC_ROOT = os.path.join(BASE_DIR, "static/")
-
-# STATIC_ROOT = BASE_DIR / "staticfiles"
-MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
+STATIC_ROOT = "/var/www/getit.com/static"
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
