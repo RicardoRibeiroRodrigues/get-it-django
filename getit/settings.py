@@ -30,10 +30,7 @@ except KeyError as e:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-try:
-    ALLOWED_HOSTS = [os.environ["SERVER_IP"]]
-except KeyError as e:
-    raise RuntimeError("Could not find a SERVER_IP in environment") from e
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 
 
 # Application definition
@@ -82,19 +79,24 @@ WSGI_APPLICATION = "getit.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-# DATABASES = {
-#     "default": dj_database_url.config(
-#         default="postgresql://localhost/getit?user=getituser&password=getitsenha",
-#         conn_max_age=600,
-#         ssl_require=not DEBUG,
-#     )
-# }
+try:
+    conn_string = os.environ["DB_URL"]
+except KeyError as e:
+    raise RuntimeError("Could not find a DATABASE_URL in environment") from e
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+    "default": dj_database_url.config(
+        default=conn_string,
+        conn_max_age=600,
+        ssl_require=not DEBUG,
+    )
 }
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
 
 
 # Password validation
