@@ -30,7 +30,10 @@ except KeyError as e:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+try:
+    ALLOWED_HOSTS = ["127.0.0.1", "localhost", os.environ["PUBLIC_IP"]]
+except KeyError as e:
+    raise RuntimeError("Could not find a ALLOWED_HOSTS in environment") from e
 
 
 # Application definition
