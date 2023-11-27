@@ -83,3 +83,7 @@ def tag(request, id):
     return render(
         request, "notes/onetag.html", {"notes": notes_with_tag, "tag": given_tag}
     )
+
+def test(request):
+    # Return a hello world
+    return HttpResponse("Hello World!")

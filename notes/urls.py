@@ -8,4 +8,5 @@ urlpatterns = [
     path("tags", views.tags, name="tags"),
     path("tag/<int:id>", views.tag, name="tag"),
     path("tag/put", views.update, name="PUT TAG"),
+    path("test", views.test, name="test")
 ]
