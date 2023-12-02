@@ -86,4 +86,4 @@ def tag(request, id):
 
 def test(request):
     # Return a hello world
-    return HttpResponse("Hello World! 2")
+    return HttpResponse("Hello World! 4")
